@@ -1,5 +1,5 @@
-import React from 'react';
-import './style.css';
+import React from "react";
+import "./style.css";
 
 export default function App() {
   return (
@@ -19,12 +19,12 @@ class Square extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: null,
+      value: null
     };
   }
   render() {
     return (
-      <button className="square" onClick={() => this.setState({ value: 'X' })}>
+      <button className="square" onClick={() => this.setState({ value: "X" })}>
         {this.state.value}
       </button>
     );
@@ -32,12 +32,18 @@ class Square extends React.Component {
 }
 
 class Board extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      squares: Array(9).fill(null)
+    };
+  }
   renderSquare(i) {
     return <Square value={i} />;
   }
 
   render() {
-    const status = 'Next player: X';
+    const status = "Next player: X";
 
     return (
       <div>
